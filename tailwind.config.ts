@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,20 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Moroccan-inspired color palette
+				moroccan: {
+					beige: '#E8D8C3',
+					gold: '#C1A87D',
+					olive: '#5A6B50',
+					charcoal: '#373737',
+					terracotta: '#BC6C25',
 				}
+			},
+			fontFamily: {
+				'tajawal': ['Tajawal', 'sans-serif'],
+				'scheherazade': ['Scheherazade New', 'serif'],
+				'amiri': ['Amiri', 'serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +98,19 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out'
+			},
+			backgroundImage: {
+				'moroccan-pattern': "url('/moroccan-pattern.svg')",
 			}
 		}
 	},

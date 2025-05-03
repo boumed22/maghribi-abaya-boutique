@@ -1,0 +1,12 @@
+
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <pattern id="pattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+    <path d="M0 0L50 0L50 50L0 50Z" fill="none" stroke="#C1A87D" stroke-width="0.5"/>
+    <path d="M25 0C25 25 0 25 0 25" fill="none" stroke="#C1A87D" stroke-width="0.5"/>
+    <path d="M0 25C0 25 25 25 25 50" fill="none" stroke="#C1A87D" stroke-width="0.5"/>
+    <path d="M50 25C50 25 25 25 25 50" fill="none" stroke="#C1A87D" stroke-width="0.5"/>
+    <path d="M25 0C25 0 25 25 50 25" fill="none" stroke="#C1A87D" stroke-width="0.5"/>
+    <circle cx="25" cy="25" r="8" fill="none" stroke="#C1A87D" stroke-width="0.5"/>
+  </pattern>
+  <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern)"/>
+</svg>
