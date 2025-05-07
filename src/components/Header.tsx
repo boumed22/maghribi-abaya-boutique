@@ -80,6 +80,13 @@ const Header = () => {
               >
                 تواصل معنا
               </Link>
+              <Link 
+                to="/cart" 
+                className="font-tajawal text-moroccan-charcoal hover:text-moroccan-gold transition-colors py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                سلة التسوق
+              </Link>
             </nav>
           </div>
         )}
