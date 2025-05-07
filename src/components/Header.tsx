@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, ShoppingBag } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { useCart } from '@/contexts/CartContext';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { totalItems } = useCart();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -28,8 +30,13 @@ const Header = () => {
           </nav>
 
           <div className="flex items-center">
-            <Link to="/cart" className="mr-4">
+            <Link to="/cart" className="mr-4 relative">
               <ShoppingBag className="h-6 w-6 text-moroccan-charcoal hover:text-moroccan-gold transition-colors" />
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-2 bg-moroccan-gold text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                  {totalItems}
+                </span>
+              )}
             </Link>
             
             {/* Mobile Menu Button */}
@@ -86,6 +93,11 @@ const Header = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 سلة التسوق
+                {totalItems > 0 && (
+                  <span className="mr-2 bg-moroccan-gold text-white text-xs px-2 py-1 rounded-full">
+                    {totalItems}
+                  </span>
+                )}
               </Link>
             </nav>
           </div>

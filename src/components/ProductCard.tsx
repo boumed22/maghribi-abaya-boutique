@@ -1,10 +1,11 @@
 
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Plus } from 'lucide-react';
 import { useToast } from "@/components/ui/use-toast";
 import OrderForm from './OrderForm';
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { useCart } from '@/contexts/CartContext';
 
 export interface Product {
   id: number;
@@ -21,9 +22,14 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const { toast } = useToast();
+  const { addToCart } = useCart();
 
   const handleOrderClick = () => {
     setIsFormOpen(true);
+  };
+
+  const handleAddToCart = () => {
+    addToCart(product);
   };
 
   return (
@@ -45,13 +51,23 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <div className="flex justify-between items-center">
               <span className="font-bold text-moroccan-gold">{product.price} درهم</span>
               
-              <Button 
-                onClick={handleOrderClick}
-                className="bg-moroccan-olive hover:bg-moroccan-charcoal text-white rounded-md flex items-center gap-2"
-              >
-                <ShoppingCart size={16} />
-                اطلب الآن
-              </Button>
+              <div className="flex gap-2">
+                <Button 
+                  onClick={handleAddToCart}
+                  className="bg-moroccan-gold hover:bg-moroccan-gold/90 text-white rounded-md flex items-center gap-1"
+                >
+                  <Plus size={16} />
+                  إضافة للسلة
+                </Button>
+                
+                <Button 
+                  onClick={handleOrderClick}
+                  className="bg-moroccan-olive hover:bg-moroccan-charcoal text-white rounded-md flex items-center gap-1"
+                >
+                  <ShoppingCart size={16} />
+                  اطلب الآن
+                </Button>
+              </div>
             </div>
           </div>
         </div>
